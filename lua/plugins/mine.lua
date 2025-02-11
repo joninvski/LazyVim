@@ -10,8 +10,57 @@ return {
     opts = { style = "storm" },
   },
   {
+    "catppuccin/nvim",
+    lazy = false,
+    name = "catppuccin",
+  },
+  {
     "tpope/vim-fugitive",
     dependencies = { "tpope/vim-rhubarb"}
+  },
+  {
+    'shumphrey/fugitive-gitlab.vim',
+    version = "*",
+    lazy = false,
+    config = function()
+      vim.g.fugitive_gitlab_domains = {'https://gitlab.eu-west-1.mgmt.onfido.xyz/'}
+    end,
+  },
+  {
+    'simnalamburt/vim-mundo',
+    version = "*",
+    lazy = false,
+    config = function()
+      vim.o.undofile = true
+    end
+  },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    build = ":Copilot auth",
+    opts = {
+      suggestion = { enabled = false },
+      panel = { enabled = false },
+      filetypes = {
+        markdown = true,
+        java = true,
+        ruby = true,
+        lua = true,
+        gradle = true,
+        python = true,
+        clojure = true,
+        elixir = true,
+        terraform = true,
+        help = true,
+        ["*"] = false
+      },
+    },
+  },
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+        max_width = 999,  -- Set your desired max width here
+    },
   },
   {
     'jpalardy/vim-slime',
@@ -25,6 +74,16 @@ return {
     opts = {},
     lazy = false,
     dependencies = { "nvim-tree/nvim-web-devicons" },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = {
+      highlight = { enable = true },
+      indent = { enable = true },
+      ensure_installed = {
+        "just"
+      }
+    }
   },
   { -- :PlantumlOpen will show you the plantuml in a browser
     "weirongxu/plantuml-previewer.vim",

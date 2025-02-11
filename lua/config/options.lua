@@ -4,5 +4,7 @@
 
 vim.g.mapleader = "`"
 vim.g.maplocalleader = "`"
-vim.o.nofixeol = true
+vim.g.fixeol = false
 vim.g.autoformat = false
+vim.wo.relativenumber = false
+vim.g.colorscheme = "catppuccino"
